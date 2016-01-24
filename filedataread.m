@@ -1,4 +1,4 @@
-function [ecg,hs,accx,accy,accz,omegax,omegay,omegaz,date,len,err] = filedataread(fname)
+function [ecg,hs,accx,accy,accz,omegax,omegay,omegaz,date,date0,len,err] = filedataread(fname)
     f_adcname = fname;
     err = '';
 
@@ -19,6 +19,7 @@ function [ecg,hs,accx,accy,accz,omegax,omegay,omegaz,date,len,err] = filedatarea
         date = fread(fid, [record_count, 1], 'int16', len_data - 2); % 100us. value = 0~32767;
         fclose(fid);
         
+        date0 = date;
         overflow=0;
         for i=2:record_count
             date(i)=date(i)+overflow;
@@ -40,7 +41,8 @@ function [ecg,hs,accx,accy,accz,omegax,omegay,omegaz,date,len,err] = filedatarea
         omegax=[];
         omegay=[];
         omegaz=[];
-        datex=[];
+        date=[];
+        date0=[];
         len = 0;
     end
 end

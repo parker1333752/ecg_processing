@@ -9,12 +9,3 @@ filters = designfilt('bandpassiir', 'FilterOrder', 6, ...
 hs_out = filter(filters, hs);
 
 end
-
-
-
-
-
-
-
-
-

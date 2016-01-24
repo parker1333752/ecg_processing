@@ -3,13 +3,13 @@ data_folder = 'tmp1';
 file_extension = 'adc.dat';
 
 % Find newest data file.
-% file_name = findNewestFile(data_folder, file_extension);
-file_name = 'ecg_hs00.dat';
+file_name = findNewestFile(data_folder, file_extension)
+% file_name = '1453530112293.adc.dat';
 file_name = strjoin({data_folder,file_name},'\');
 
 % Read original data.
 [ecg,hs,accx,accy,accz,omegax,omegay,...
-    omegaz,datex,len,err] = filedataread3(file_name);
+    omegaz,datex,date0,len,err] = filedataread(file_name);
 clear file_name
 if all(strjoin({err,'a'},'')=='a')
     clear err
@@ -20,7 +20,7 @@ else
 end
 
 % Calculate frequency of sampling.
-fs = 386;
+fs = 390;
 
 % Heart sound preprocess.
 hs_f = HSfilter(hs,fs);
@@ -29,4 +29,4 @@ o = audioplayer(hs_o*500,4410);
 
 % Ecg signal preprocess.
 ecg_f = ECGfilter(ecg,fs);
-powerFreq(ecg_f,fs);
+% powerFreq(ecg_f,fs);
