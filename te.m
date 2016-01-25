@@ -1,10 +1,10 @@
 % Configuration.
-data_folder = 'tmp1';
+data_folder = 'tmp3';
 file_extension = 'adc.dat';
 
 % Find newest data file.
-file_name = findNewestFile(data_folder, file_extension)
-% file_name = '1453530112293.adc.dat';
+[file_name,datex] = findNewestFile(data_folder, file_extension)
+% file_name = '1453720627585.adc.dat';
 file_name = strjoin({data_folder,file_name},'\');
 
 % Read original data.
@@ -30,3 +30,8 @@ o = audioplayer(hs_o*500,4410);
 % Ecg signal preprocess.
 ecg_f = ECGfilter(ecg,fs);
 % powerFreq(ecg_f,fs);
+
+% datex interval test.
+dd = diff(datex);
+figure(1)
+plot(1:len-1,dd);

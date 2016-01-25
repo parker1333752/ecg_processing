@@ -1,4 +1,4 @@
-function name = findNewestFile(folder, extension)
+function [name,datex] = findNewestFile(folder, extension)
     list_ = dir(folder);
     datex = datetime(0,0,0,0,0,0);
     len_min = size(extension,2);
