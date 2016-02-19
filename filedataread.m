@@ -1,7 +1,7 @@
 function [ecg,hs,accx,accy,accz,omegax,omegay,omegaz,date,date0,len,err] = filedataread(fname)
     f_adcname = fname;
     err = '';
-
+    
     len_data = 22;
     record_count = flength(f_adcname) / (len_data);
     fid = fopen(f_adcname);
