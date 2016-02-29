@@ -4,7 +4,7 @@ file_extension = 'adc.dat';
 
 % Find newest data file.
 % [file_name,datex] = findNewestFile(data_folder, file_extension)
-file_name = 'static_3.dat';
+file_name = 'handmove_2.dat';
 acc_gain = 8;
 if acc_gain == 8
     omega_gain = 250;
@@ -62,4 +62,4 @@ end
 % figure(1);plot(1:len,hs_f);title('heart sound');
 % figure(2);plot(1:len,ecg_f);title('ecg');
 
-findBestAccDirection();
+% findBestAccDirection();
