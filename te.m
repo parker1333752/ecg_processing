@@ -3,8 +3,8 @@ data_folder = 'tmp2';
 file_extension = 'adc.dat';
 
 % Find newest data file.
-% [file_name,datex] = findNewestFile(data_folder, file_extension)
-file_name = 'handmove_2.dat';
+[file_name,datex] = findNewestFile(data_folder, file_extension)
+% file_name = 'handmove_2.dat';
 acc_gain = 8;
 if acc_gain == 8
     omega_gain = 250;
@@ -31,18 +31,18 @@ else
     clear omegaz datex len
 end
 
-% Calculate frequency of sampling.
-fs = 390;
-
-% Heart sound preprocess.
-hs_f = HSfilter(hs,fs);
-hs_o = HSinterp1(hs_f,datex,fs,4410);
-o = audioplayer(hs_o*500,4410);
-
-% Ecg signal preprocess.
-ecg_f = ECGfilter(ecg,fs);
-plot(1:len,[ecg_f+0.5,hs_f-0.5])
-% powerFreq(ecg_f,fs);
+% % Calculate frequency of sampling.
+% fs = 390;
+% 
+% % Heart sound preprocess.
+% hs_f = HSfilter(hs,fs);
+% hs_o = HSinterp1(hs_f,datex,fs,4410);
+% o = audioplayer(hs_o*500,4410);
+% 
+% % Ecg signal preprocess.
+% ecg_f = ECGfilter(ecg,fs);
+% plot(1:len,[ecg_f+0.5,hs_f-0.5])
+% % powerFreq(ecg_f,fs);
 
 %{
 %  The break of date value is caused by data losing, so it can't be ignore.
