@@ -1,6 +1,6 @@
-function [ecg,hs,accx,accy,accz,omegax,omegay,omegaz,date,date0,len,err] = filedataread(fname)
+function [ecg,hs,accx,accy,accz,omegax,omegay,omegaz,date,date0,len,error] = filedataread(fname)
     f_adcname = fname;
-    err = '';
+    error = '';
     
     len_data = 22;
     record_count = flength(f_adcname) / (len_data);
@@ -32,7 +32,7 @@ function [ecg,hs,accx,accy,accz,omegax,omegay,omegaz,date,date0,len,err] = filed
         ecg = ecg*1.2/hex2dec('10000000');
         len = size(date,1);
     else
-        err = [err,'erro: adc file not found.\n'];
+        error = [error,'data file not found.\n'];
         ecg=[];
         hs=[];
         accx=[];

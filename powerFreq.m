@@ -4,8 +4,8 @@ function [ Y,t ] = powerFreq( data,fs )
 len = size(data,1) * size(data,2);
 Y = abs(fft(xcorr(data,'unbias'),len));
 t = linspace(0,fs,len);
-x = 50;
-if fs>50
+x = 100;
+if fs>x
     x = ceil(x/fs*(len-1));
 else
     x = len;
